@@ -1,0 +1,1 @@
+from flask import Flask, render_template, url_forapp = Flask(__name__)@app.route('/<u_name>')def my_home(u_name=None):    global username    if u_name[-4:] == "html":        return render_template(u_name, name=username)    username = u_name    return render_template("index.html", name=username)if __name__ == "__main__":    app.run(debug=True)
